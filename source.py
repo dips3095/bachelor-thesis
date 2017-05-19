@@ -28,11 +28,13 @@ def check_date(check_folder, match_folder):
         text = " ".join(text.split("\n"))
         words = tokenize(text)
         for jt in match_files:
-            sys1 = open(str(match_folder + jt))
-            text1 = "".join(sys1.readlines())
-            text1 = " ".join(text1.split("\n"))
-            words1=tokenize(text1)
-            if set(words) ==set(words1): print('Файл есть в тестовой выборке: ' + str(it) +' '+ str(jt))
+            if str(check_folder + it) != str(match_folder + jt):
+                sys1 = open(str(match_folder + jt))
+                text1 = "".join(sys1.readlines())
+                text1 = " ".join(text1.split("\n"))
+                words1 = tokenize(text1)
+                if set(words) == set(words1):
+                    print('Файл есть в тестовой выборке: ' + str(it) + ' ' + str(jt))
 
 
 def get_yules(s, ResArray):
@@ -351,18 +353,23 @@ def f7_mr5(Res):
 
 
 def makevec_mr5(Res):
-    print(f1_mr5(Res))
-    print(f2_mr5(Res))
-    print(f3_mr5(Res))
-    print(f4_mr5(Res))
-    print(f5_mr5(Res))
-    print(f6_mr5(Res))
-    print(f7_mr5(Res))
+    # print(f1_mr5(Res))
+    # print(f2_mr5(Res))
+    # print(f3_mr5(Res))
+    # print(f4_mr5(Res))
+    # print(f5_mr5(Res))
+    # print(f6_mr5(Res))
+    # print(f7_mr5(Res))
     res_vec = [round(math.fabs(f1_mr5(Res))), round(math.fabs(f2_mr5(Res))), round(math.fabs(f3_mr5(Res))),
                round(math.fabs(f4_mr5(Res))), round(math.fabs(f5_mr5(Res))),
                round(math.fabs(f6_mr5(Res))), round(math.fabs(f7_mr5(Res)))]
-    print(res_vec)
-    return res_vec
+    res = []
+    for i in res_vec:
+        if i > 1: i = 1
+        res.append(i)
+
+    # print(res)
+    return res
 
 
 def makevec(Res):
@@ -376,7 +383,13 @@ def makevec(Res):
     res_vec = [round(math.fabs(f1(Res))), round(math.fabs(f2(Res))), round(math.fabs(f3(Res))),
                round(math.fabs(f4(Res))), round(math.fabs(f5(Res))),
                round(math.fabs(f6(Res))), round(math.fabs(f7(Res)))]
-    return res_vec
+    res = []
+    for i in res_vec:
+        if i > 1: i = 1
+        res.append(i)
+
+    print(res)
+    return res
 
     # j = 0
     # while j <= 1:
@@ -436,9 +449,6 @@ def out_file(src, out):
     # outfile.write(','.join(map(str, ResArray)) + ',' + str(j) + '.0' + '\n')
 
 
-list_of_classifiers = [[1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 0, 1, 1, 1], [0, 0, 1, 1, 0, 0, 1], [0, 1, 0, 1, 0, 1, 0]]
-
-
 def Hamming_strong(list_of_classifiers, testvec):
     for resclass, classvec in enumerate(list_of_classifiers, 1):
         i = 0
@@ -478,15 +488,15 @@ def classify_folder_strong(folder, list_of_classifiers):
     classid = int(folder[-2])
     for file in files:
         class_num = Hamming_strong(list_of_classifiers, getArray(str(folder + file)))
-        print('------', class_num)
+        #print('------', class_num)
         if class_num == classid: cntSuccess += 1
         if class_num != classid and class_num != 0: cntMisClasify += 1
-
-    print('Всего было обработано ' + str(len(files)) + ' файлов, из них:')
-    print('Верно определен класс: ' + str(cntSuccess))
-    print('Класс определен, но не верно: ' + str(cntMisClasify))
-    print('Не декодируется ни в один из классов: ' + str(len(files) - cntMisClasify - cntSuccess))
-    print()
+    # print('Всего было обработано {} файлов, из них:'.format(str(len(files))))
+    # print('Верно определен класс: ' + str(cntSuccess))
+    # print('Класс определен, но не верно: ' + str(cntMisClasify))
+    # print('Не декодируется ни в один из классов: ' + str(len(files) - cntMisClasify - cntSuccess))
+    resvec = np.array([len(files), cntSuccess, cntMisClasify, len(files) - cntMisClasify - cntSuccess])
+    return resvec
 
 
 def classify_folder_mild(folder, list_of_classifiers):
@@ -498,7 +508,7 @@ def classify_folder_mild(folder, list_of_classifiers):
 
     for file in files:
         class_list = Hamming_soft(list_of_classifiers, getArray(str(folder + file)))
-        print('-----', class_list)
+        #print('-----', class_list)
         if len(class_list) == 1:
             if class_list.pop() == classid:
                 cntSuccess += 1
@@ -506,14 +516,46 @@ def classify_folder_mild(folder, list_of_classifiers):
                 cntFail += 1
         for i in class_list:
             if i == classid: cntAmongSuccess += 1
-    print('Всего было обработано ' + str(len(files)) + ' файлов, из них:')
-    print('Верно однозначно определен класс: ' + str(cntSuccess))
-    print('Неверно определен класс: ' + str(cntFail))
-    print('Класс определен верно, но неоднозначно: ' + str(cntAmongSuccess))
+    # print('Всего было обработано {} файлов, из них:'.format(str(len(files))))
+    # print('Верно однозначно определен класс: ' + str(cntSuccess))
+    # print('Неверно определен класс: ' + str(cntFail))
+    # print('Класс определен верно, но неоднозначно: ' + str(cntAmongSuccess))
+    resvec = np.array([len(files), cntSuccess, cntFail, cntAmongSuccess])
+    return resvec
 
 
-# classify_folder_strong('data_for_testC3/', list_of_classifiers)
-# classify_folder_mild('data_for_testC3/', list_of_classifiers)
+def print_res_all():
+    res_strong = classify_folder_strong(testset1, list_of_classifiers) + classify_folder_strong(testset2,
+                                                                                                    list_of_classifiers) + classify_folder_strong(
+        testset3, list_of_classifiers) + classify_folder_strong(testset4, list_of_classifiers)
+    res_mild = classify_folder_mild(testset1, list_of_classifiers) + classify_folder_mild(testset2,
+                                                                                                    list_of_classifiers) + classify_folder_mild(
+        testset3, list_of_classifiers) + classify_folder_mild(testset4, list_of_classifiers)
+    print('Жесткое декодирование')
+    print('Всего было обработано {} файлов, из них:'.format(res_strong[0]))
+    print('Верно определен класс: ' + str(res_strong[1]))
+    print('Класс определен, но не верно: ' + str(res_strong[2]))
+    print('Не декодируется ни в один из классов: ' + str(res_strong[3]))
+    print()
+    print('Мягкое декодирование')
+    print('Всего было обработано {} файлов, из них:'.format(res_mild[0]))
+    print('Верно однозначно определен класс: ' + str(res_mild[1]))
+    print('Неверно определен класс: ' + str(res_mild[2]))
+    print('Класс определен верно, но неоднозначно: ' + str(res_mild[3]))
+
+trainingset1 = 'dataset/diminC1/'
+trainingset2 = 'dataset/Tyler-84C2/'
+trainingset3 = 'dataset/VadimCzechC3/'
+trainingset4 = 'dataset/LandolkaC4/'
+testset1 = 'test_data/data_for_testC1/'
+testset2 = 'test_data/data_for_testC2/'
+testset3 = 'test_data/data_for_testC3/'
+testset4 = 'test_data/data_for_testC4/'
+list_of_classifiers = [[1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 0, 1, 1, 1], [0, 0, 1, 1, 0, 0, 1], [0, 1, 0, 1, 0, 1, 0]]
+
+# classify_folder_strong(testset1, list_of_classifiers)
+# print(classify_folder_mild(testset1, list_of_classifiers))
+print_res_all()
 # out_file('dataset/diminC1/', 0)
 # out_file('dataset/diminC1/', 1)
 # out_file('dataset/Tyler-84C2/', 0)
@@ -522,6 +564,8 @@ def classify_folder_mild(folder, list_of_classifiers):
 # out_file('dataset/VadimCzechC3/', 1)
 # out_file('dataset/LandolkaC4/', 0)
 # out_file('dataset/LandolkaC4/', 1)
-check_date('data_for_testC1/','dataset/diminC1/')
-print('------')
-check_date('data_for_testC3/','dataset/VadimCzechC3/')
+# check_date('data_for_testC3/','data_for_testC3/')
+# print('------')
+# check_date(testset4,trainingset4)
+# print('------')
+# check_date(testset4,testset4)
