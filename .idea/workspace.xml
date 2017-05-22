@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2fcc57c-d919-4f96-8a97-68602779e6e2" name="Default" comment="first commit">
+    <list default="true" id="a2fcc57c-d919-4f96-8a97-68602779e6e2" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/1.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dataset/test.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res1_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res1_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res2_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res2_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res3_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res3_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res4_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res4_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f1_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f2_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f3_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f4_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f5_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f6_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/big_data_for_weka/f7_big.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f1.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f2.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f3.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f4.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f5.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f6.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/data_for_weka/f7.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f1.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f2.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f3.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f4.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f5.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f6.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/weka_files/weka_new_files/f7.arff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/выбранные features.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/используемые в обучениии features.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res1_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res1_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res2_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res2_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res3_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res3_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res4_0.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/предыдущие текстовые файлы/res4_1.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source.py" afterPath="$PROJECT_DIR$/source.py" />
     </list>
     <ignored path="last_version.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +72,7 @@
       <file leaf-file-name="source.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="-1423">
               <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
@@ -422,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494870281806</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added some universality to print_res and some code refactoring was made">
+      <created>1495467699064</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495467699064</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -463,7 +510,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="added some universality to print_res and some code refactoring was made" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some universality to print_res and some code refactoring was made" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1166,7 +1214,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="-1423">
           <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
