@@ -269,6 +269,14 @@ def f1_mr5(Res):
     if my_cmp(Res[0], 53.361, 1e-3, op.le):
         return 0.051 * Res[0] - 2.2661
     return 1
+    # swap 1 abd 3
+    # if my_cmp(Res[0], 103.203, 1e-3, op.le):
+    #     return 0.0007 * Res[0] + 1.691 * Res[10] - 0.3112
+    # if Res[0] > 143.198:
+    #     return 0.0009 * Res[0] + 15.6087 * Res[10] - 1.7429
+    # if my_cmp(Res[10], 0.161, 1e-3, op.le):
+    #     return 58.7483 * Res[10] - 9.037
+    # return 1
 
 
 def f2_mr5(Res):
@@ -285,6 +293,17 @@ def f2_mr5(Res):
     if my_cmp(Res[0], 81.569, 1e-3, op.le):
         return -0.0171 * Res[0] + 2.1992
     return -0.0666 * Res[0] + 6.4226
+
+    # swap 1 and 3 class
+    # if my_cmp(Res[0], 143.198, 1e-3, op.le) and Res[5] > 0.613:
+    #     return 0.0006 * Res[0] + 3.3781 * Res[5] - 112.9966 * Res[9] - 1.4452
+    # if my_cmp(Res[0], 143.198, 1e-3, op.le) and Res[5] > 0.522:
+    #     return 0.0015 * Res[0] - 0.3313 * Res[2] - 1.3677 * Res[5] + 0.8036
+    # if Res[0] > 143.198:
+    #     return 0.0005 * Res[0] - 1.6226 * Res[2] + 1.4543
+    # if Res[2] > 0.416:
+    #     return 0.0053 * Res[0] - 0.2839
+    # return 1
 
 
 def f3_mr5(Res):
@@ -334,6 +353,20 @@ def f5_mr5(Res):
     if Res[2] > 0.416:
         return -0.0053 * Res[0] + 1.2839
     return 0
+    # swap 1 and 3
+    # if Res[0] > 103.737:
+    #     return 0.0003 * Res[0] - 0.9715 * Res[5] - 0.0036 * Res[6] - 7.8353 * Res[8] + 1.8106
+    # if Res[8] > 0.031:
+    #     return 0.0035 * Res[0] - 0.9583 * Res[5] - 0.0042 * Res[6] + 0.6683
+    # if my_cmp(Res[6], 60.319, 1e-3, op.le) and my_cmp(Res[5], 0.568, 1e-3, op.le):
+    #     return 0.0102 * Res[0] - 1.6117 * Res[5] - 0.004 * Res[6] + 9.9906 * Res[8] + 7.2324 * Res[10] - 0.3125
+    # if Res[6] > 50.73:
+    #     return 0.005 * Res[0] - 0.8481 * Res[5] - 0.006 * Res[6] + 0.6048
+    # if my_cmp(Res[5], 0.708, 1e-3, op.le) and my_cmp(Res[7], 0.809, 1e-3, op.le):
+    #     return 0.0088 * Res[0] - 1.5346 * Res[5] - 8.3927 * Res[7] + 7.8305
+    # if my_cmp(Res[0], 81.569, 1e-3, op.le):
+    #     return 0.0171 * Res[0] - 1.1992
+    # return 0.0666 * Res[0] - 5.4226
 
 
 def f6_mr5(Res):
@@ -344,6 +377,17 @@ def f6_mr5(Res):
     if my_cmp(Res[10], 0.161, 1e-3, op.le):
         return -58.7483 * Res[10] + 10.037
     return 0
+    # swap 1 and 3
+    # if my_cmp(Res[1], 4.76, 1e-2, op.le) and Res[6] > 49.272 and my_cmp(Res[0], 107.298, 1e-3, op.le):
+    #     return 0.0005 * Res[0] + 0.0724 * Res[1] - 1.3805 * Res[2] - 0.0109 * Res[6] - 4.7121 * Res[7] - 93.8703 * Res[
+    #         9] + 5.4647
+    # if Res[0] > 72.158:
+    #     return 1
+    # if Res[0] > 63.332:
+    #     return 1
+    # if my_cmp(Res[0], 53.361, 1e-3, op.le):
+    #     -0.051 * Res[0] + 3.2661
+    # return 0
 
 
 def f7_mr5(Res):
@@ -376,6 +420,7 @@ def makevec(Res):
     return res
 
 
+
 def getArray(src):
     sys = open(src, 'r')
     text = "".join(sys.readlines())
@@ -386,8 +431,8 @@ def getArray(src):
     LexicalCharacterFeature(text, ResArray)
     Hapax(text, ResArray)
     get_yules(text, ResArray)
-    # return makevec(ResArray)
-    return makevec_mr5(ResArray)
+    return makevec(ResArray)
+    # return makevec_mr5(ResArray)
 
 
 def out_file(src, out):
@@ -415,8 +460,8 @@ def Hamming_strong(list_of_classifiers, testvec):
         while i < len(classvec):
             if classvec[i] != testvec[i]: cnt += 1
             i += 1
-        if cnt <= 1: return resclass
-    return 0
+        if cnt <= 1: return ([resclass, cnt])
+    return ([0, cnt])
 
 
 def Hamming_soft(list_of_classifiers, testvec):
@@ -444,12 +489,15 @@ def classify_folder_strong(folder, list_of_classifiers):
     files = os.listdir(folder)
     cntSuccess = 0
     cntMisClasify = 0
+    cntCorrection = 0
     classid = int(folder[-2])
     for file in files:
         class_num = Hamming_strong(list_of_classifiers, getArray(str(folder + file)))
-        if class_num == classid: cntSuccess += 1
-        if class_num != classid and class_num != 0: cntMisClasify += 1
-    resvec = np.array([len(files), cntSuccess, cntMisClasify, len(files) - cntMisClasify - cntSuccess])
+        if int(class_num[0]) == classid:
+            cntSuccess += 1
+            if class_num[1] == 1: cntCorrection += 1
+        if class_num[0] != classid and class_num[0] != 0: cntMisClasify += 1
+    resvec = np.array([len(files), cntSuccess, cntMisClasify, len(files) - cntMisClasify - cntSuccess, cntCorrection])
     return resvec
 
 
@@ -474,7 +522,7 @@ def classify_folder_mild(folder, list_of_classifiers):
 
 
 def print_res_all(seq):
-    res_strong = np.zeros(4)
+    res_strong = np.zeros(5)
     res_mild = np.zeros(4)
     for i in seq:
         res_strong += classify_folder_strong(i, list_of_classifiers)
@@ -482,12 +530,14 @@ def print_res_all(seq):
     print('Жесткое декодирование')
     print('Всего было обработано {} файла, из них:'.format(int(res_strong[0])))
     print('Верно определен класс: ' + str(int(res_strong[1])))
+    print('Из верно определенных было исправление: {}'.format(int(res_strong[4])))
     print('Класс определен, но не верно: ' + str(int(res_strong[2])))
     print('Не декодируется ни в один из классов: ' + str(int(res_strong[3])))
     print()
     print('Мягкое декодирование')
     print('Всего было обработано {} файла, из них:'.format(int(res_mild[0])))
     print('Верно однозначно определен класс: ' + str(int(res_mild[1])))
+    print('Из верно определенных было исправление: {}'.format(int(res_strong[4])))
     print('Неверно определен класс: ' + str(int(res_mild[2])))
     print('Класс определен верно, но неоднозначно: ' + str(int(res_mild[3])))
 
@@ -504,7 +554,7 @@ list_of_classifiers = [[1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 0, 1, 1, 1], [0, 0, 1, 1
 
 # classify_folder_strong(testset1, list_of_classifiers)
 # print(classify_folder_mild(testset1, list_of_classifiers))
-print_res_all([testset1, testset2, testset3, testset4])
+print_res_all([testset2, testset1, testset4, testset3])
 # out_file('dataset/diminC1/', 0)
 # out_file('dataset/diminC1/', 1)
 # out_file('dataset/Tyler-84C2/', 0)
