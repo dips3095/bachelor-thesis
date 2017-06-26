@@ -7,5 +7,5 @@ Classification movies and TV-serials reveiws authors via error-correcting output
 * Python(3.6.1)  
 
 *Student: A.V. Polyanskiy*  
-*Supervisor: PhD  J.V. Kosolapov*  
+*Supervisor: PhD  Y.V. Kosolapov*  
 *Southern Federal University (Russia), I.I.Vorovich Institute of Mathematics, Mechanics and Computer Science*
