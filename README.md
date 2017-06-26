@@ -8,4 +8,4 @@ Classification movies and TV-serials reveiws authors via error-correcting output
 
 *Student: A.V. Polyanskiy*  
 *Supervisor: PhD  J.V. Kosolapov*  
-32	*Southern Federal University (Russia), I.I.Vorovich Institute of Mathematics, Mechanics and Computer Science*
+*Southern Federal University (Russia), I.I.Vorovich Institute of Mathematics, Mechanics and Computer Science*
