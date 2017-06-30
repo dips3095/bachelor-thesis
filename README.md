@@ -1,4 +1,4 @@
-## Diploma  
+## Solving multiclass learning problem via ECOC
 ### Description  
 Classification movies and TV-serials reveiws authors via error-correcting output codes.  
 ### Used technologies
